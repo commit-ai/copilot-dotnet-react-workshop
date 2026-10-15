@@ -11,7 +11,7 @@
       "isBackground": true,
       "problemMatcher": {
         "owner": "dotnet-watch",
-        "pattern": { "regexp": "^$" },
+        "pattern": { "regexp": "^(?!)()()$", "kind": "file", "file": 1, "message": 2 },
         "background": {
           "activeOnStart": true,
           "beginsPattern": "^\\s*watch : Started",
@@ -33,7 +33,7 @@
       "isBackground": true,
       "problemMatcher": {
         "owner": "vite",
-        "pattern": { "regexp": "^$" },
+        "pattern": { "regexp": "^(?!)()()$", "kind": "file", "file": 1, "message": 2 },
         "background": {
           "activeOnStart": true,
           "beginsPattern": "VITE v",

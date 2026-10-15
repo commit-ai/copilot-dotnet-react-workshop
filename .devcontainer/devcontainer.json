@@ -7,6 +7,7 @@
   },
   "hostRequirements": { "cpus": 2, "memory": "8gb" },
   "postCreateCommand": "dotnet restore backend-solution.sln && npm ci --prefix frontend && npm ci && npx playwright install --with-deps chromium",
+  "waitFor": "postCreateCommand",
   "forwardPorts": [3001, 5000],
   "portsAttributes": {
     "3001": { "label": "Frontend (Vite)", "onAutoForward": "openBrowser" },
