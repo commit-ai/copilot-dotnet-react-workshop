@@ -1,0 +1,31 @@
+{
+  "name": "Copilot .NET + React Workshop",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/dotnet:2": { "version": "10.0" },
+    "ghcr.io/devcontainers/features/node:1": { "version": "20" }
+  },
+  "hostRequirements": { "cpus": 2, "memory": "8gb" },
+  "postCreateCommand": "dotnet restore backend-solution.sln && npm ci --prefix frontend && npm ci && npx playwright install --with-deps chromium",
+  "waitFor": "postCreateCommand",
+  "forwardPorts": [3001, 5000],
+  "portsAttributes": {
+    "3001": { "label": "Frontend (Vite)", "onAutoForward": "openBrowser" },
+    "5000": { "label": "Backend (.NET)", "onAutoForward": "silent" }
+  },
+  "customizations": {
+    "codespaces": { "openFiles": ["README.md"] },
+    "vscode": {
+      "extensions": [
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        "ms-dotnettools.csdevkit",
+        "ms-playwright.playwright",
+        "dbaeumer.vscode-eslint"
+      ],
+      "settings": {
+        "task.allowAutomaticTasks": "on"
+      }
+    }
+  }
+}
